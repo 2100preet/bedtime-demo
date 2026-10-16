@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "rea
 import { Link, Navigate, Route, Routes, useNavigate, useParams, useSearchParams } from "react-router";
 import { BRAND_NAME, priceLabels } from "../../src/lib/brand";
 import { birthdayPanels, sampleCharacter, samplePanel } from "./comic";
-import { assetUrl, chargeLabel, personalize, pickSample, type Currency } from "./logic";
+import { SAMPLE_VOICE_NOTE, assetUrl, chargeLabel, personalize, pickSample, playerLabels, type Currency } from "./logic";
 import { useDemo, type Narrator } from "./store";
 
 const LANGUAGES = [
@@ -420,6 +420,7 @@ function ChildPage() {
       childId: child.id,
       narratorName,
       sampleId: sample.id,
+      language: child.language,
       title: personalize(sample.title, child.firstName, narratorName),
       body: personalize(sample.body, child.firstName, narratorName),
       audio: sample.audio,
@@ -498,8 +499,9 @@ function ChildPage() {
           ) : readyVoice ? (
             <>
               <p>
-                A prewritten sample becomes {child.firstName}’s story, read in a preview voice. The page uses {readyVoice.displayName}’s name.
+                A prewritten {labelLanguage(child.language)} sample becomes {child.firstName}’s story. The page uses {readyVoice.displayName}’s name.
               </p>
+              <p className="note">{SAMPLE_VOICE_NOTE}</p>
               <button className="btn" type="button" onClick={generate}>
                 Generate story
               </button>
@@ -625,7 +627,7 @@ function InvitePage() {
               Start recording
             </button>
           )}
-          <button className="btn-secondary" type="button" onClick={() => save(assetUrl("audio/practice.wav"), true)}>
+          <button className="btn-secondary" type="button" onClick={() => save(assetUrl("audio/practice.mp3"), true)}>
             No microphone? Save a practice reading
           </button>
         </div>
@@ -704,12 +706,14 @@ function StoryPage() {
   return (
     <Shell>
       <main className="narrow stack">
+        <p className="muted">{playerLabels(story.language).title}</p>
         <h1>{story.title}</h1>
         <div className="player">
-          <p>Preview narration</p>
+          <p>{playerLabels(story.language).listen}</p>
           <audio controls src={assetUrl(story.audio)} />
+          <p className="fine">{SAMPLE_VOICE_NOTE}</p>
         </div>
-        <p className="muted">The preview reading is a sample script. The words below use the names you entered.</p>
+        <p className="muted">This sample reading uses the names Aarav and Dadi. The words below use the names you entered.</p>
         <article className="script">{story.body}</article>
       </main>
     </Shell>
@@ -982,6 +986,8 @@ function ComicPage() {
     );
   }
   const panels = birthdayPanels(comic.childName, comic.narratorName, comic.interests);
+  const reading = pickSample(comic.language, comic.id);
+  const labels = playerLabels(comic.language);
   return (
     <Shell>
       <main className="wrap stack">
@@ -989,10 +995,14 @@ function ComicPage() {
         <p className="muted">
           The same cartoon face on every page. {comic.photoCount} photo{comic.photoCount === 1 ? "" : "s"} were discarded after you left the form. This page is private to this browser.
         </p>
+        <p className="muted">{labels.title}</p>
+        <h2>{personalize(reading.title, comic.childName, comic.narratorName)}</h2>
         <div className="player">
-          <p>Birthday reading · {comic.narratorName}</p>
-          <audio controls src={assetUrl("audio/birthday.wav")} />
+          <p>{labels.listen}</p>
+          <audio controls src={assetUrl(reading.audio)} />
+          <p className="fine">{SAMPLE_VOICE_NOTE}</p>
         </div>
+        <article className="script">{personalize(reading.body, comic.childName, comic.narratorName)}</article>
         <div className="stack">
           {panels.map((panel) => (
             <article className="comic-card" key={panel.index}>

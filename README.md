@@ -54,7 +54,7 @@ To publish under the GitHub account `2100preet`:
 3. The first run may ask you to approve the `github-pages` environment.
 4. The site is `https://2100preet.github.io/bedtime-demo/`. A repository named `2100preet.github.io` is served at `https://2100preet.github.io/` instead.
 
-Sample narration wav files in `demo/public/audio/` are produced with `espeak-ng` from `demo/narration/`. They are committed so the Pages build does not need a speech synthesizer. The password in the demo never leaves the browser.
+Sample narration mp3 files in `demo/public/audio/` are pre-generated with Microsoft Edge neural voices (`edge-tts`, rate `-10%`) from `demo/narration/`: `en-IN-NeerjaNeural`, `hi-IN-SwaraNeural`, `te-IN-ShrutiNeural`, and `kn-IN-SapnaNeural`. Run `python3 demo/scripts/narrate.py` when a story changes. They are committed so the Pages build does not need a speech synthesizer. The password in the demo never leaves the browser.
 
 On the full app, add `?currency=INR` or `?currency=USD` to any page to preview that list. The choice is remembered for 30 days. Without the query, India is detected from the Vercel `x-vercel-ip-country` or Cloudflare `cf-ipcountry` header, then from `Accept-Language` (for example `en-IN` or `hi`), then from the browser timezone `Asia/Kolkata`. India visitors see “Prices shown in INR”. Checkout stays on the in-app practice page until `STRIPE_SECRET_KEY` is set; the stored charge is already in cents or paise, so Stripe INR prices or a later Razorpay adapter can use the same amount without changing the pages.
 

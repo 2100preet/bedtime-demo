@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import type { Currency } from "./logic";
 
-const KEY = "lorikins-demo-v1";
+const KEY = "lorikins-demo-v2";
 
 export type Child = {
   id: string;
@@ -32,6 +32,7 @@ export type Story = {
   title: string;
   body: string;
   audio: string;
+  language: string;
   createdAt: number;
 };
 

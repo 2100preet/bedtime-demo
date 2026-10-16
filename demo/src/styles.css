@@ -11,13 +11,13 @@
   --card: #ffffff;
   color: var(--ink);
   background: var(--cream);
-  font-family: Nunito, "Segoe UI", sans-serif;
+  font-family: Nunito, "Noto Sans Devanagari", "Noto Sans Telugu", "Noto Sans Kannada", "Segoe UI", sans-serif;
   line-height: 1.5;
 }
 
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--cream); color: var(--ink); }
-h1, h2, h3, .display { font-family: Fraunces, Georgia, serif; font-weight: 560; letter-spacing: -0.02em; }
+h1, h2, h3, .display { font-family: Fraunces, "Noto Sans Devanagari", "Noto Sans Telugu", "Noto Sans Kannada", Georgia, serif; font-weight: 560; letter-spacing: -0.02em; }
 a { color: inherit; }
 button, input, select, textarea { font: inherit; }
 
@@ -102,7 +102,9 @@ textarea { min-height: 7rem; }
 .check { display: flex; gap: 0.7rem; align-items: flex-start; background: var(--lilac); border-radius: 1rem; padding: 0.9rem; font-weight: 600; }
 .check input { width: 1.2rem; height: 1.2rem; margin-top: 0.2rem; }
 .player { background: var(--night); color: #fffaf2; border-radius: 1rem; padding: 0.9rem 1rem; }
+.player p { margin: 0.15rem 0; }
 .player audio { width: 100%; margin-top: 0.4rem; }
+.player .fine { margin-top: 0.7rem; color: #fef3c7; font-size: 0.95rem; }
 .panel { overflow: hidden; border-radius: 1.4rem; background: white; }
 .panel p { margin: 0; padding: 0.9rem 1rem 1.1rem; }
 .comic-card { overflow: hidden; border-radius: 1.4rem; background: white; box-shadow: 0 10px 30px rgba(30, 27, 75, 0.08); }
