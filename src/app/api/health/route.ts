@@ -1,0 +1,6 @@
+import { serviceMode } from "@/lib/services";
+import { ok } from "@/lib/http";
+
+export async function GET() {
+  return ok({ ok: true, mode: serviceMode() });
+}

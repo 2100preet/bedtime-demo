@@ -1,0 +1,202 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String    @id @default(cuid())
+  email            String    @unique
+  name             String    @default("")
+  passwordHash     String?
+  stripeCustomerId String?
+  introPriceUsed   Boolean   @default(false)
+  createdAt        DateTime  @default(now())
+
+  children      Child[]
+  narrators     Narrator[]
+  subscription  Subscription?
+  checkouts     CheckoutSession[]
+  comics        ComicOrder[]
+  giftsBought   GiftPurchase[] @relation("GiftBuyer")
+  giftsRedeemed GiftPurchase[] @relation("GiftRedeemer")
+  notifications Notification[]
+}
+
+model Child {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  firstName String
+  ageRange  String
+  language  String
+  interests String   @default("")
+  nickname  String   @default("")
+  createdAt DateTime @default(now())
+  stories   Story[]
+  narrators Narrator[]
+}
+
+model Narrator {
+  id               String      @id @default(cuid())
+  userId           String?
+  user             User?       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  childId          String?
+  child            Child?      @relation(fields: [childId], references: [id], onDelete: SetNull)
+  comicOrderId     String?
+  comicOrder       ComicOrder? @relation(fields: [comicOrderId], references: [id], onDelete: Cascade)
+  relationship     String
+  customLabel      String      @default("")
+  displayName      String
+  inviteToken      String      @unique
+  language         String      @default("english")
+  status           String      @default("invited")
+  consentGiven     Boolean     @default(false)
+  consentStatement String      @default("")
+  consentedAt      DateTime?
+  audioPath        String?
+  voiceId          String?
+  provider         String      @default("mock")
+  createdAt        DateTime    @default(now())
+  deletedAt        DateTime?
+  stories          Story[]
+}
+
+model Story {
+  id         String    @id @default(cuid())
+  childId    String
+  child      Child     @relation(fields: [childId], references: [id], onDelete: Cascade)
+  narratorId String?
+  narrator   Narrator? @relation(fields: [narratorId], references: [id], onDelete: SetNull)
+  title      String
+  body       String
+  language   String
+  audioPath  String?
+  audioMode  String    @default("browser")
+  voiceLabel String    @default("Preview voice")
+  provider   String    @default("mock")
+  isSample   Boolean   @default(false)
+  source     String    @default("manual")
+  createdAt  DateTime  @default(now())
+}
+
+model Subscription {
+  id                   String    @id @default(cuid())
+  userId               String    @unique
+  user                 User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan                 String
+  status               String
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  isGift               Boolean   @default(false)
+  giftedByEmail        String?
+  currentPeriodEnd     DateTime?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+}
+
+model GiftPurchase {
+  id               String    @id @default(cuid())
+  buyerUserId      String?
+  buyer            User?     @relation("GiftBuyer", fields: [buyerUserId], references: [id])
+  buyerEmail       String
+  buyerName        String    @default("")
+  recipientEmail   String
+  recipientName    String    @default("")
+  plan             String
+  amountCents      Int
+  currency         String    @default("USD")
+  redeemCode       String    @unique
+  status           String    @default("pending")
+  redeemedByUserId String?
+  redeemedBy       User?     @relation("GiftRedeemer", fields: [redeemedByUserId], references: [id])
+  redeemedAt       DateTime?
+  checkoutId       String?
+  createdAt        DateTime  @default(now())
+}
+
+model ComicOrder {
+  id              String    @id @default(cuid())
+  userId          String?
+  user            User?     @relation(fields: [userId], references: [id])
+  buyerEmail      String
+  buyerName       String    @default("")
+  childFirstName  String
+  ageRange        String
+  language        String
+  interests       String    @default("")
+  nickname        String    @default("")
+  occasion        String    @default("birthday")
+  birthdayDate    String?
+  deliverOn       String?
+  narratorChoice  String
+  photoConsent    Boolean   @default(false)
+  photoConsentAt  DateTime?
+  photoPaths      String    @default("[]")
+  photosDeletedAt DateTime?
+  status          String    @default("pending_payment")
+  shareToken      String    @unique
+  title           String    @default("")
+  narration       String    @default("")
+  panelsJson      String    @default("[]")
+  characterJson   String    @default("{}")
+  audioPath       String?
+  audioMode       String    @default("browser")
+  pdfPath         String?
+  voiceLabel      String    @default("")
+  amountCents     Int
+  currency        String    @default("USD")
+  checkoutId      String?
+  deliveredAt     DateTime?
+  error           String    @default("")
+  createdAt       DateTime  @default(now())
+  narrators       Narrator[]
+}
+
+model CheckoutSession {
+  id              String    @id @default(cuid())
+  userId          String?
+  user            User?     @relation(fields: [userId], references: [id])
+  email           String    @default("")
+  kind            String
+  payload         String    @default("{}")
+  amountCents     Int
+  currency        String    @default("USD")
+  description     String    @default("")
+  provider        String    @default("mock")
+  status          String    @default("pending")
+  stripeSessionId String?
+  returnPath      String    @default("/")
+  createdAt       DateTime  @default(now())
+  paidAt          DateTime?
+}
+
+model MagicLink {
+  id        String    @id @default(cuid())
+  email     String
+  token     String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+}
+
+model WaitlistEntry {
+  id        String   @id @default(cuid())
+  email     String
+  interest  String
+  createdAt DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  channel   String
+  to        String
+  subject   String   @default("")
+  body      String
+  createdAt DateTime @default(now())
+}
