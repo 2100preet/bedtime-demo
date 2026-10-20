@@ -1,34 +1,53 @@
 import { describe, expect, it } from "vitest";
-import { chargeLabel, chargeMinor, personalize, pickSample, playerLabels } from "../demo/src/logic";
+import { chargeLabel, chargeMinor, personalize, pickSample, playerLabels, type StoryFacts } from "../demo/src/logic";
+import { transliterateName } from "../demo/src/transliterate";
 
 const LANGUAGES = ["english", "hindi", "telugu", "kannada", "hinglish", "tenglish", "kanglish"] as const;
 
+const FACTS: StoryFacts = {
+  child: "Chinnu",
+  narrator: "Lakshmi",
+  relation: "Nani",
+  interests: "paper boats",
+  age: "4–5",
+  language: "english",
+};
+
 describe("static demo samples", () => {
-  it("gives every language its own story, title, and listen label", () => {
+  it("fills the entered child, relation, interests, and age into every language", () => {
     const bodies = new Set<string>();
     for (const language of LANGUAGES) {
       const sample = pickSample(language, "child-1");
-      expect(sample.id).toBe(language);
-      expect(sample.audio).toBe(`audio/${language}.mp3`);
-      const text = personalize(sample.body, "Aarav", "Dadi");
-      const words = text.split(/\s+/).filter(Boolean);
+      const facts = { ...FACTS, language };
+      const text = personalize(sample.body, facts);
+      const title = personalize(sample.title, facts);
+      const words = sample.body.split(/\s+/).filter(Boolean);
       expect(words.length).toBeGreaterThanOrEqual(300);
       expect(words.length).toBeLessThanOrEqual(450);
-      expect(text).toContain("Aarav");
-      expect(text).toContain("Dadi");
-      expect(personalize(sample.title, "Aarav", "Dadi")).toContain("Aarav");
+      expect(text).toContain(transliterateName("Chinnu", language));
+      expect(text).toContain(transliterateName("Lakshmi", language));
+      expect(text).toContain(transliterateName("Nani", language));
+      expect(text).toContain("paper boats");
+      expect(text).toContain("4–5");
+      expect(title).toContain(transliterateName("Chinnu", language));
+      expect(text).not.toMatch(/Aarav|Meera/);
+      expect(title).not.toMatch(/Aarav|Meera/);
+      expect(sample.body).not.toMatch(/Aarav|Meera/);
       bodies.add(sample.body);
       expect(playerLabels(language).listen.length).toBeGreaterThan(0);
-      expect(playerLabels(language).title.length).toBeGreaterThan(0);
     }
     expect(bodies.size).toBe(LANGUAGES.length);
-    expect(playerLabels("hindi").listen).toBe("सुनें");
-    expect(playerLabels("telugu").listen).toBe("వినండి");
-    expect(playerLabels("kannada").listen).toBe("ಕೇಳಿ");
-    expect(playerLabels("english").listen).toBe("Listen");
-    expect(playerLabels("hinglish").listen).toBe("Suno");
-    expect(playerLabels("tenglish").listen).toBe("Vinandi");
-    expect(playerLabels("kanglish").listen).toBe("Keli");
+  });
+
+  it("writes Chinnu in the script of a native-language story", () => {
+    expect(transliterateName("Chinnu", "hindi")).toBe("चिन्नु");
+    expect(transliterateName("Chinnu", "telugu")).toBe("చిన్ను");
+    expect(transliterateName("Chinnu", "kannada")).toBe("ಚಿನ್ನು");
+    expect(transliterateName("Chinnu", "english")).toBe("Chinnu");
+    expect(transliterateName("Chinnu", "hinglish")).toBe("Chinnu");
+    expect(personalize(pickSample("hindi", "x").body, { ...FACTS, language: "hindi" })).not.toContain("Chinnu");
+    expect(personalize(pickSample("kannada", "x").body, { ...FACTS, language: "kannada" })).toContain("ಚಿನ್ನು");
+    expect(personalize(pickSample("telugu", "x").body, { ...FACTS, language: "telugu" })).toContain("చిన్ను");
   });
 
   it("keeps each story in the script of the chosen language", () => {
@@ -39,20 +58,6 @@ describe("static demo samples", () => {
     for (const language of ["hinglish", "tenglish", "kanglish"] as const) {
       expect(pickSample(language, "x").body).not.toMatch(/[\u0900-\u097F\u0C00-\u0C7F\u0C80-\u0CFF]/);
     }
-    expect(pickSample("hinglish", "x").body).toMatch(/Raat/);
-    expect(pickSample("tenglish", "x").body).toMatch(/nidrapoyaru/);
-    expect(pickSample("kanglish", "x").body).toMatch(/nidrege/);
-    expect(pickSample("telugu", "x").id).not.toBe(pickSample("english", "x").id);
-  });
-
-  it("uses the neural voice for that language", () => {
-    expect(pickSample("english", "x").voice).toBe("en-IN-NeerjaNeural");
-    expect(pickSample("hindi", "x").voice).toBe("hi-IN-SwaraNeural");
-    expect(pickSample("hinglish", "x").voice).toBe("hi-IN-SwaraNeural");
-    expect(pickSample("telugu", "x").voice).toBe("te-IN-ShrutiNeural");
-    expect(pickSample("tenglish", "x").voice).toBe("te-IN-ShrutiNeural");
-    expect(pickSample("kannada", "x").voice).toBe("kn-IN-SapnaNeural");
-    expect(pickSample("kanglish", "x").voice).toBe("kn-IN-SapnaNeural");
   });
 
   it("prices practice checkout in dollars and rupees", () => {

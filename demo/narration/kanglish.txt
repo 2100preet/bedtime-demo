@@ -1,6 +1,6 @@
 Day mugidittu, and the house aa quiet olage bantu, which comes just before sleep.
 
-{child} rug mele eradu kaalu madachi kulitidru, and {narrator} shoulder taaguvashtu hattira kulitidru. Horage ondu scooter hoyitu, aamele lane chala still aayitu. Window sill mele mushti ashtu chikka clay lamp ittu. Ada wick nidrisuttiruva mouse hage suttikondittu.
+{child} vayassu {age}. {child} rug mele eradu kaalu madachi kulitidru, and {narrator}, {child} avara {relation}, shoulder taaguvashtu hattira kulitidru. Horage ondu scooter hoyitu, aamele lane chala still aayitu. Window sill mele mushti ashtu chikka clay lamp ittu. Ada wick nidrisuttiruva mouse hage suttikondittu.
 
 "{child}, lamp hachhona?" anta {narrator} nidhaanavaagi kelidru.
 
@@ -12,7 +12,7 @@ Day mugidittu, and the house aa quiet olage bantu, which comes just before sleep
 
 Ibburu ottige adannu nodidru. Flame left ge baagi, aamele right ge baagitu, keluttiruvante.
 
-{child} lamp ge aa day maathu helidru. Ondu mango bahuteka hechchu sweet aagittu, and obba friend crayon share maadidru. Lamp enannu fix maadlililla. Helalu yaava clever line illadaga friend uliyuvante, adu alle uliyitu.
+{child} lamp ge aa day maathu, mattu {interests} bagge helidru. Lamp enannu fix maadlililla. Helalu yaava clever line illadaga friend uliyuvante, adu alle uliyitu.
 
 {narrator} swalpa milk kaayisidru. Spoon sound nilluvavaregu honey kalasidru. {child} nidhaanavaagi kudidru. Warmth kaalberaḷugalavaregu nadedu, alle nillabekendu ankondu.
 

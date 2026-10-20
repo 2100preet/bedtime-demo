@@ -1,6 +1,6 @@
 रात का time हो गया था, और घर उस शांति में आ गया था जो नींद से पहले आती है।
 
-{child} के दोनों पैर rug पे समेटे हुए थे, और {narrator} का shoulder touch हो रहा था। बाहर एक scooter निकल गया, फिर lane बिल्कुल still हो गई। Window की sill पे एक छोटा clay lamp रखा था, मुट्ठी जितना, और उसकी cotton wick एक सोए हुए mouse की तरह मुड़ी हुई थी।
+{child} की उम्र {age} है। {child} के दोनों पैर rug पे समेटे हुए थे, और {narrator}, {child} के {relation}, का shoulder touch हो रहा था। बाहर एक scooter निकल गया, फिर lane बिल्कुल still हो गई। Window की sill पे एक छोटा clay lamp रखा था, मुट्ठी जितना, और उसकी cotton wick एक सोए हुए mouse की तरह मुड़ी हुई थी।
 
 "{child}, lamp जलाएँ?" {narrator} ने soft voice में पूछा।
 
@@ -12,7 +12,7 @@
 
 दोनों ने साथ-साथ उसे देखा। Flame left side को झुकी, फिर right side को, जैसे सुन रही हो।
 
-{child} ने lamp को दिन की बात बताई। एक mango इतना sweet था कि लगभग ज़्यादा था, और एक friend ने crayon share किया था। Lamp ने कुछ fix नहीं किया। वह बस वहीं रहा, जैसे दोस्त रहता है जब कहने को कोई clever line न हो।
+{child} ने lamp को दिन की बात बताई, और {interests} की बात भी। Lamp ने कुछ fix नहीं किया। वह बस वहीं रहा, जैसे दोस्त रहता है जब कहने को कोई clever line न हो।
 
 {narrator} ने थोड़ा milk गरम किया, और spoon के quiet होने तक honey घोला। {child} ने धीरे-धीरे पिया। Warmth toes तक पहुँची और वहीं रुकने का मन बना लिया।
 

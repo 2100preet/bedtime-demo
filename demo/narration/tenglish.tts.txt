@@ -1,6 +1,6 @@
 Day అయిపోయింది, and the house ఆ quiet లోకి వచ్చింది, which comes just before sleep.
 
-{child} rug మీద రెండు కాళ్లు మడిచి కూర్చున్నారు, and {narrator} shoulders తగిలేంత దగ్గర కూర్చున్నారు. బయట ఒక scooter వెళ్లిపోయింది, తర్వాత lane చాలా still అయింది. Window sill మీద ముట్టంత చిన్న clay lamp ఉంది. దాని wick నిద్రపోతున్న mouse లా చుట్టుకుని ఉంది.
+{child} వయస్సు {age}. {child} rug మీద రెండు కాళ్లు మడిచి కూర్చున్నారు, and {narrator}, {child} యొక్క {relation}, shoulders తగిలేంత దగ్గర కూర్చున్నారు. బయట ఒక scooter వెళ్లిపోయింది, తర్వాత lane చాలా still అయింది. Window sill మీద ముట్టంత చిన్న clay lamp ఉంది. దాని wick నిద్రపోతున్న mouse లా చుట్టుకుని ఉంది.
 
 "{child}, lamp వెలిగెద్దామా?" అని {narrator} మెల్లగా అడిగారు.
 
@@ -12,7 +12,7 @@ Day అయిపోయింది, and the house ఆ quiet లోకి వచ�
 
 ఇద్దరూ కలిసి lamp ని చూశారు. Flame left కి వంగి, తర్వాత right కి వంగింది, వింటున్నట్టు.
 
-{child} lamp కి ఆ day గురించి చెప్పారు. ఒక mango దాదాపు ఎక్కువ sweet గా ఉంది, and ఒక friend crayon share చేశారు. Lamp ఏమీ fix చెయ్యలేదు. చెప్పడానికి clever line లేకపోతే friend ఉన్నట్టు, అది అక్కడే ఉండిపోయింది.
+{child} lamp కి ఆ day గురించి, మరియు {interests} గురించి చెప్పారు. Lamp ఏమీ fix చెయ్యలేదు. చెప్పడానికి clever line లేకపోతే friend ఉన్నట్టు, అది అక్కడే ఉండిపోయింది.
 
 {narrator} కొంచెం milk వేడి చేశారు. Spoon sound ఆగే వరకు honey కలిపారు. {child} మెల్లగా తాగారు. Warmth కాళ్ల వేళ్ల దాకా నడిచి, అక్కడే ఆగాలి అనుకుంది.
 

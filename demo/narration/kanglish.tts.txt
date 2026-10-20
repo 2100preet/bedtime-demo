@@ -1,6 +1,6 @@
 Day ಮುಗಿದಿತ್ತು, and the house ಆ quiet ಒಳಗೆ ಬಂತು, which comes just before sleep.
 
-{child} rug ಮೇಲೆ ಎರಡು ಕಾಲು ಮಡಚಿ ಕುಳಿತಿದ್ದರು, and {narrator} shoulder ತಾಗುವಷ್ಟು ಹತ್ತಿರ ಕುಳಿತಿದ್ದರು. ಹೊರಗೆ ಒಂದು scooter ಹೋಯಿತು, ಆಮೇಲೆ lane ಚಳಾ still ಆಯಿತು. Window sill ಮೇಲೆ ಮುಷ್ಟಿಯಷ್ಟು ಚಿಕ್ಕ clay lamp ಇತ್ತು. ಅದರ wick ನಿದ್ರಿಸುತ್ತಿರುವ mouse ಹಾಗೆ ಸುತ್ತಿಕೊಂಡಿತ್ತು.
+{child} ವಯಸ್ಸು {age}. {child} rug ಮೇಲೆ ಎರಡು ಕಾಲು ಮಡಚಿ ಕುಳಿತಿದ್ದರು, and {narrator}, {child} ಅವರ {relation}, shoulder ತಾಗುವಷ್ಟು ಹತ್ತಿರ ಕುಳಿತಿದ್ದರು. ಹೊರಗೆ ಒಂದು scooter ಹೋಯಿತು, ಆಮೇಲೆ lane ಚಳಾ still ಆಯಿತು. Window sill ಮೇಲೆ ಮುಷ್ಟಿಯಷ್ಟು ಚಿಕ್ಕ clay lamp ಇತ್ತು. ಅದರ wick ನಿದ್ರಿಸುತ್ತಿರುವ mouse ಹಾಗೆ ಸುತ್ತಿಕೊಂಡಿತ್ತು.
 
 "{child}, lamp ಹಚ್ಚೋಣವೇ?" ಅಂತ {narrator} ನಿಧಾನವಾಗಿ ಕೇಳಿದರು.
 
@@ -12,7 +12,7 @@ Day ಮುಗಿದಿತ್ತು, and the house ಆ quiet ಒಳಗೆ ಬಂ�
 
 ಇಬ್ಬರೂ ಒಟ್ಟಿಗೆ ಅದನ್ನು ನೋಡಿದರು. Flame left ಗೆ ಬಾಗಿ, ಆಮೇಲೆ right ಗೆ ಬಾಗಿತು, ಕೇಳುತ್ತಿರುವಂತೆ.
 
-{child} lamp ಗೆ ಆ day ಮಾತು ಹೇಳಿದರು. ಒಂದು mango ಬಹುತೇಕ ಹೆಚ್ಚು sweet ಆಗಿತ್ತು, and ಒಬ್ಬ friend crayon share ಮಾಡಿದರು. Lamp ಏನನ್ನೂ fix ಮಾಡಲಿಲ್ಲ. ಹೇಳಲು ಯಾವ clever line ಇಲ್ಲದಾಗ friend ಉಳಿಯುವಂತೆ, ಅದು ಅಲ್ಲೇ ಉಳಿಯಿತು.
+{child} lamp ಗೆ ಆ day ಮಾತು, ಮತ್ತು {interests} ಬಗ್ಗೆ ಹೇಳಿದರು. Lamp ಏನನ್ನೂ fix ಮಾಡಲಿಲ್ಲ. ಹೇಳಲು ಯಾವ clever line ಇಲ್ಲದಾಗ friend ಉಳಿಯುವಂತೆ, ಅದು ಅಲ್ಲೇ ಉಳಿಯಿತು.
 
 {narrator} ಸ್ವಲ್ಪ milk ಕಾಯಿಸಿದರು. Spoon sound ನಿಲ್ಲುವವರೆಗೆ honey ಕಲಸಿದರು. {child} ನಿಧಾನವಾಗಿ ಕುಡಿದರು. Warmth ಕಾಲ್ಬೆರಳುಗಳವರೆಗೆ ನಡೆದು, ಅಲ್ಲೇ ನಿಲ್ಲಬೇಕೆಂದುಕೊಂಡಿತು.
 

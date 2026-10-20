@@ -338,7 +338,7 @@ function NewChild() {
         <p className="muted">Only a first name, age, language, interests, and a family nickname.</p>
         <label>
           First name
-          <input name="firstName" required placeholder="Aarav" />
+          <input name="firstName" required placeholder="First name" />
         </label>
         <label>
           Age
@@ -416,14 +416,22 @@ function ChildPage() {
     if (!child || !readyVoice) return;
     const sample = pickSample(child.language, child.id);
     const narratorName = readyVoice.displayName;
+    const facts = {
+      child: child.firstName,
+      narrator: narratorName,
+      relation: readyVoice.relationship,
+      interests: child.interests,
+      age: child.ageRange,
+      language: child.language,
+    };
     const storyId = addStory({
       childId: child.id,
       narratorName,
       sampleId: sample.id,
       language: child.language,
-      title: personalize(sample.title, child.firstName, narratorName),
-      body: personalize(sample.body, child.firstName, narratorName),
-      audio: sample.audio,
+      title: personalize(sample.title, facts),
+      body: personalize(sample.body, facts),
+      audio: "",
     });
     navigate(`/library/${storyId}`);
   }
@@ -710,10 +718,8 @@ function StoryPage() {
         <h1>{story.title}</h1>
         <div className="player">
           <p>{playerLabels(story.language).listen}</p>
-          <audio controls src={assetUrl(story.audio)} />
           <p className="fine">{SAMPLE_VOICE_NOTE}</p>
         </div>
-        <p className="muted">This sample reading uses the names Aarav and Dadi. The words below use the names you entered.</p>
         <article className="script">{story.body}</article>
       </main>
     </Shell>
@@ -846,7 +852,7 @@ function Birthday() {
         <InrNote currency={state.currency} />
         <label>
           Child’s first name
-          <input name="childName" required placeholder="Aarav" />
+          <input name="childName" required placeholder="First name" />
         </label>
         <label>
           Age
@@ -988,6 +994,14 @@ function ComicPage() {
   const panels = birthdayPanels(comic.childName, comic.narratorName, comic.interests);
   const reading = pickSample(comic.language, comic.id);
   const labels = playerLabels(comic.language);
+  const facts = {
+    child: comic.childName,
+    narrator: comic.narratorName,
+    relation: comic.narratorName,
+    interests: comic.interests,
+    age: comic.ageRange,
+    language: comic.language,
+  };
   return (
     <Shell>
       <main className="wrap stack">
@@ -996,13 +1010,12 @@ function ComicPage() {
           The same cartoon face on every page. {comic.photoCount} photo{comic.photoCount === 1 ? "" : "s"} were discarded after you left the form. This page is private to this browser.
         </p>
         <p className="muted">{labels.title}</p>
-        <h2>{personalize(reading.title, comic.childName, comic.narratorName)}</h2>
+        <h2>{personalize(reading.title, facts)}</h2>
         <div className="player">
           <p>{labels.listen}</p>
-          <audio controls src={assetUrl(reading.audio)} />
           <p className="fine">{SAMPLE_VOICE_NOTE}</p>
         </div>
-        <article className="script">{personalize(reading.body, comic.childName, comic.narratorName)}</article>
+        <article className="script">{personalize(reading.body, facts)}</article>
         <div className="stack">
           {panels.map((panel) => (
             <article className="comic-card" key={panel.index}>

@@ -123,7 +123,7 @@ async def synthesize(text: str, voice: str, dest: Path) -> None:
 async def main() -> None:
     catalog = load_stories()
     published = {
-        language: {key: value for key, value in story.items() if key != "tts"}
+        language: {key: value for key, value in story.items() if key not in {"tts", "sampleChild", "sampleNarrator"}}
         for language, story in catalog.items()
     }
     (NARRATION / "stories.json").write_text(

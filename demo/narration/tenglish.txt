@@ -1,6 +1,6 @@
 Day aipoyindi, and the house aa quiet lo ki vachindi, which comes just before sleep.
 
-{child} rug meeda rendu kaallu madichi koorchunnaru, and {narrator} shoulders taggeyanta daggara koorchunnaru. Bayata oka scooter vellipoyindi, tarvata lane chala still ayindi. Window sill meeda mutthi antha chinna clay lamp undi. Daani wick nidrapotunna mouse laa chuttukuni undi.
+{child} age {age}. {child} rug meeda rendu kaallu madichi koorchunnaru, and {narrator}, {child} yokka {relation}, shoulders taggeyanta daggara koorchunnaru. Bayata oka scooter vellipoyindi, tarvata lane chala still ayindi. Window sill meeda mutthi antha chinna clay lamp undi. Daani wick nidrapotunna mouse laa chuttukuni undi.
 
 "{child}, lamp veligeddama?" ani {narrator} melliga adigaru.
 
@@ -12,7 +12,7 @@ Day aipoyindi, and the house aa quiet lo ki vachindi, which comes just before sl
 
 Iddaru kalisi lamp ni chusaru. Flame left ki vangi, tarvata right ki vangindi, vinntunnatlu.
 
-{child} lamp ki aa day gurinchi chepparu. Oka mango daadaapu ekkuva sweet gaa undi, and oka friend crayon share chesaru. Lamp emi fix cheyyale. Cheppadaniki clever line lekapothe friend undatlu, adi akkade undipoyindi.
+{child} lamp ki aa day gurinchi, mariyu {interests} gurinchi chepparu. Lamp emi fix cheyyale. Cheppadaniki clever line lekapothe friend undatlu, adi akkade undipoyindi.
 
 {narrator} konchem milk vedha chesaru. Spoon sound aage varaku honey kaliparu. {child} melliga taagaru. Warmth kaallu vella daka nadichi, akkade aagali anukundi.
 

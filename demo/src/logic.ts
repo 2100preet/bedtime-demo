@@ -1,5 +1,6 @@
 import { formatMoney, priceBook, type CurrencyCode } from "../../src/lib/brand";
 import stories from "../narration/stories.json";
+import { transliterateName } from "./transliterate";
 
 export type Currency = CurrencyCode;
 export type SampleId = keyof typeof stories;
@@ -13,7 +14,7 @@ export type Sample = {
 };
 
 export const SAMPLE_VOICE_NOTE =
-  "Sample voice. Your family member's own cloned voice is used in the real app.";
+  "Sample voice (real app narrates your story in your loved one's voice)";
 
 type StoryFile = {
   title: string;
@@ -21,8 +22,15 @@ type StoryFile = {
   voice: string;
   playerTitle: string;
   listen: string;
-  sampleChild: string;
-  sampleNarrator: string;
+};
+
+export type StoryFacts = {
+  child: string;
+  narrator: string;
+  relation: string;
+  interests: string;
+  age: string;
+  language: string;
 };
 
 const FILES = stories as Record<SampleId, StoryFile>;
@@ -40,8 +48,14 @@ export function playerLabels(language: string) {
   return { title: file.playerTitle, listen: file.listen };
 }
 
-export function personalize(template: string, child: string, narrator: string) {
-  return template.replaceAll("{child}", child).replaceAll("{narrator}", narrator);
+export function personalize(template: string, facts: StoryFacts) {
+  const named = (value: string) => transliterateName(value.trim(), facts.language);
+  return template
+    .replaceAll("{child}", named(facts.child))
+    .replaceAll("{narrator}", named(facts.narrator))
+    .replaceAll("{relation}", named(facts.relation))
+    .replaceAll("{interests}", facts.interests.trim())
+    .replaceAll("{age}", facts.age.trim());
 }
 
 export function pickSample(language: string, _salt: string): Sample {
